@@ -23,6 +23,20 @@
 		}
 	}
 	
+	class StaticCameraItem extends Item {
+		function __construct($id, $name, $internalUrl, $externalUrl) {
+			parent::__construct();
+			
+			$this->id = $id;
+			$this->name = $name;
+			$this->type="static_camera";
+						
+			// Where you can see it
+			$this->options['internalUrl'] = $internalUrl;
+			$this->options['externalUrl'] = $externalUrl;
+		}
+	}
+
 	class GarageItem extends Item {
 		function __construct($id, $name, $toggleGpio, $magGpio, $internalUrl, $externalUrl) {
 		   parent::__construct();
