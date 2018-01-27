@@ -24,7 +24,7 @@
 	}
 	
 	class GarageItem extends Item {
-		function __construct($id, $name, $toggleGpio, $toggleGround, $magGpio, $magGround, $internalUrl, $externalUrl) {
+		function __construct($id, $name, $toggleGpio, $magGpio, $internalUrl, $externalUrl) {
 		   parent::__construct();
 		   
 		   $this->id = $id;
@@ -33,11 +33,9 @@
 		   
 		   // Open/Close Pins
 		   $this->options['toggleGpio'] = $toggleGpio;
-		   $this->options['toggleGround'] = $toggleGround;
 		   
 		   // Check if the Door is Open or Closed
 		   $this->options['magGpio'] = $magGpio;
-		   $this->options['magGround'] = $magGround;
 		   
 		   // Where you can see it
 		   $this->options['internalUrl'] = $internalUrl;

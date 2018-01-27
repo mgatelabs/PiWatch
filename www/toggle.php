@@ -1,10 +1,21 @@
 <?php
 	header('Content-type: application/json');
 	
-	var doorId = $_POST["doorId"];
+	$gpio = $_POST["gpio"];
+
+	$result = array();
+
+	if (is_numeric($gpio) && $gpio != -1) {
+		$result["status"] = 'OK';
+
+		error_reporting(E_ALL);
+		exec('gpio write ' . $gpio . ' 0'); // Output GPIO 0 as 0  replace with what you use
+		usleep(1000000);
+		exec('gpio write ' . $gpio . ' 1'); // Output GPIO 0 as 1  replace with what you use
+
+	} else {
+		$result["status"] = 'FAIL';
+	}
 	
-	$result = array ('a'=>1,'b'=>2,'c'=>3,'d'=>4,'e'=>5);
-	
-	
-	echo json_encode($arr); 
+	echo json_encode($result); 
 ?>

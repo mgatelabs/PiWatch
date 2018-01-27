@@ -6,3 +6,9 @@ html,body {
         background-repeat: no-repeat;
         text-align:left;
 }
+
+.preview {
+        width:100%;
+        height: auto;
+        display: block;
+} 
