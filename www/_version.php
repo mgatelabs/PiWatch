@@ -1,0 +1,1 @@
+<?php define("VERSION", "0_0_1"); ?>

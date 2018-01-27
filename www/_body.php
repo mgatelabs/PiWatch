@@ -18,13 +18,13 @@
 		<script src="/js/bootstrap.min.js?version=<?php echo constant("VERSION"); // Cache Breaker ?>" ></script>
 		<!-- PHP Stuff -->
 		<?php require_once('_required.php'); ?>
-		<?php include 'customize.php'; ?>	
+		<?php require_once('customize.php'); ?>	
 		<!-- App Stuff -->
 		<script src="/js/piwatch.js?version=<?php echo constant("VERSION"); // Cache Breaker ?>"></script>
 		<script>
 		$(function(){
 			var ns = window.pw || {};
-			ns.instance = new ns.PiWatch(<?php echo json_encode($config) ?>, <?php echo (constant('VIEW_MODE') == 'DEMO') ? 'true' : 'false'; ?>, true);
+			ns.instance = new ns.PiWatch(<?php echo json_encode(getClientData($config)) ?>, <?php echo (constant('VIEW_MODE') == 'DEMO') ? 'true' : 'false'; ?>, true);
 		});
 		</script>
 	</head>

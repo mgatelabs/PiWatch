@@ -1,7 +1,7 @@
 <?php
 	header('Content-type: application/json');
 	
-	$gpio = $_POST["gpio"];
+	$gpio = $_GET["gpio"];
 
 	$result = array();
 
