@@ -18,8 +18,8 @@
 
             for (i = 0; i < this.config.length; i++) {
                 item = this.config[i];
-                item.column = $('<div class="col-sm"></div').appendTo(this.row);
-                item.card = $('<div class="card"></div>').appendTo(item.column);
+                item.column = $('<div class="col-md-4 col-sm-6"></div').appendTo(this.row);
+                item.card = $('<div class="card" style="margin-bottom:1em;"></div>').appendTo(item.column);
                 item.card.append($('<h5 class="card-title"></h5>').text(item.name));
                 
                 for (j = 0; j < item.children.length; j++) {

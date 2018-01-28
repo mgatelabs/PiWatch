@@ -75,6 +75,19 @@
 		 }
 	}
 
+	class NoPreview extends AbstractItem {
+		function __construct($id) {
+			parent::__construct($id, 'preview');
+		 }
+
+		 function clientData() {
+			$result = parent::clientData();
+			$result['interval'] = 0;
+			$result['url'] = '/images/nothing.png';
+			return $result;
+		 }
+	}
+
 	class Clicker extends AbstractItem {
 		public $url;
 		public $name;
@@ -87,6 +100,23 @@
 		function clientData() {
 			$result = parent::clientData();
 			$result['name'] = $this->name;
+			$result['url'] = $this->url;
+			return $result;
+		}
+	}
+
+	class Checker extends AbstractItem {
+		public $url;
+		public $values;
+		function __construct($id, $url, $values) {
+			parent::__construct($id, 'checker');
+			$this->name = $name;
+			$this->values = $values;
+		}
+
+		function clientData() {
+			$result = parent::clientData();
+			$result['values'] = $this->values;
 			$result['url'] = $this->url;
 			return $result;
 		}
