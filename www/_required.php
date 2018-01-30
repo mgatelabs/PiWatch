@@ -83,7 +83,7 @@
 		 function clientData() {
 			$result = parent::clientData();
 			$result['interval'] = 0;
-			$result['url'] = '/images/nothing.png';
+			$result['url'] = '/images/nothing.png?a=a';
 			return $result;
 		 }
 	}

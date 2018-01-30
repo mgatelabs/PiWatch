@@ -11,4 +11,21 @@ html,body {
         width:100%;
         height: auto;
         display: block;
-} 
+}
+
+.card button {
+        margin: 6px;
+}
+
+.btm-left {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+}
+
+.refresher {
+        padding-left: 3px;
+        padding-right: 3px;
+        padding-top: 3px;
+        padding-bottom: 3px;
+}

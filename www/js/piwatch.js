@@ -27,8 +27,9 @@
 
                     switch(child.type) {
                         case 'preview': {
-                            item.image = $('<img style="-webkit-user-select: none" class="preview">').attr('interval', child.interval).data('src', child.url).attr('src', child.url);
-                            item.card.append(item.image);
+                            var div = $('<div style="display:block;position:relative;"></div>').appendTo(item.card);
+                            item.image = $('<img style="-webkit-user-select: none" class="preview">').attr('id', item.id).attr('interval', child.interval).data('src', child.url).attr('src', child.url).appendTo(div);
+                            item.button = $('<button type="button" class="btn btn-primary btn-lg garage refresher btm-left"><img src="/images/refresh.png"/></button>').attr('to', item.id).appendTo(div);
                         } break;
                         case 'clicker': {
                             item.button = $('<button type="button" class="btn btn-primary btn-lg garage toggler"></button>').text(child.name).data('url', child.url);
@@ -55,12 +56,19 @@
                 */
             }
             
+            $('.refresher', this.row).click(function(){
+                var ref = $('#' +$(this).attr('to'));
+                ref.attr('src', ref.data('src') + '&time=' + new Date().getTime());
+            });
+
             $('.preview[interval]', this.row).each(function(){
                 var ref = $(this), inteval = ref.attr('interval') - 0;
                 if (inteval > 0) {
-                    setInterval(function(){
-                        ref.attr('src', ref.data('src') + '&time=' + new Date());
-                    }, inteval);
+                    ref.load(function(){
+                        setTimeout(function(){
+                            ref.attr('src', ref.data('src') + '&time=' + new Date().getTime());
+                        }, inteval);
+                    });
                 }
             });
 
