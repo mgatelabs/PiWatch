@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# This should automatically delete all files older then five days
+find "/home/pi/mmal/m-video/" -type f -mtime +5 -exec rm -f {} \;

@@ -1,0 +1,28 @@
+#!/bin/bash
+# /etc/init.d/cam_motion
+
+### BEGIN INIT INFO
+# Default-Start:  2 3 4 5
+### END INIT INFO
+
+PIDFile=/home/pi/.motion/motion.pid
+
+# Carry out specific functions when asked to by the system
+case "$1" in
+start)
+echo "Starting Camera Motion"
+nohup /usr/bin/motion -n -c /home/pi/.motion/motion.conf -p /home/pi/.motion/motion.pid -l /home/pi/.motion/motion.log 1>/dev/null 2>&1 ;;
+
+stop)
+echo "Stopping Camera Motion"
+kill -9 $(cat /home/pi/.motion/motion.pid)
+#killall motion
+;;
+
+*)
+echo "Usage: /etc/init.d/cam_motion {start|stop}"
+exit 1
+;;
+esac
+
+exit 0
